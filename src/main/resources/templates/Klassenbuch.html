@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klassenbuch</title>
+</head>
+<body>
+<h1>Klassenbuch</h1>
+
+<!-- Lehrer Formular -->
+<h2>Lehrer</h2>
+<form action="/lehrer" method="post">
+    <label for="lehrerName">Name:</label>
+    <input type="text" id="lehrerName" name="name" required>
+    <button type="submit">Lehrer hinzufügen</button>
+</form>
+
+<!-- Schüler Formular -->
+<h2>Schüler</h2>
+<form action="/schueler" method="post">
+    <label for="schuelerName">Name:</label>
+    <input type="text" id="schuelerName" name="name" required>
+    <button type="submit">Schüler hinzufügen</button>
+</form>
+
+<!-- Liste der Lehrer -->
+<h2>Liste der Lehrer</h2>
+<ul>
+    <!-- Hier werden die Lehrer dynamisch hinzugefügt -->
+    <th:block th:each="lehrer : ${lehrerList}">
+        <li th:text="${lehrer.name}"></li>
+    </th:block>
+</ul>
+
+<!-- Liste der Schüler -->
+<h2>Liste der Schüler</h2>
+<ul>
+    <!-- Hier werden die Schüler dynamisch hinzugefügt -->
+    <th:block th:each="schueler : ${schuelerList}">
+        <li th:text="${schueler.name}"></li>
+    </th:block>
+</ul>
+</body>
+</html>
